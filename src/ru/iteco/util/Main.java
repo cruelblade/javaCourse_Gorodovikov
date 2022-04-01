@@ -1,4 +1,5 @@
-package com.company;
+package ru.iteco.util;
+import java.util.*;
 
 public class Main {
 
