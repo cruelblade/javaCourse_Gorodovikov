@@ -4,73 +4,102 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-// 1 задание
-        int [] array = {3, 22, 1, 13, 4, 6, 16, 5};
+
+        //Задача 1
+
+        int [][] array = new int[4][3];
+        int [] sum = new int[4];
 
         for (int i = 0; i < array.length; i++)
         {
-            if (array[i] % 2 == 0)
+            for (int j = 0; j < array[i].length; j++)
             {
-                System.out.println(array[i]);
+                Scanner in = new Scanner(System.in);
+                while (true) {
+                    try {
+                        array[i][j] = in.nextInt();
+                        break;
+                    } catch (Exception e) {
+                        System.out.println("На ввод принимаются только числа в диапазоне Integer");
+                        in.nextLine();
+                    }
+                }
+                sum[i] += array[i][j];
+                if (j == array[i].length - 1)
+                {
+                    System.out.printf("\nLine %d: %d\n\n", i + 1, sum[i]);
+                }
             }
         }
         System.out.println();
 
-// 2 задание
-        int [] array2 = {3, 22, 1, 13, 4, 6, 16, 5};
-
-        for (int i = 0; i < array2.length; i++)
-        {
-            if (array2[i] > 9 & array2[i] < 100)
-            {
-                System.out.println(array2[i]);
+        //Задача 2
+        int [][] array2 = new int[4][3];
+        int [] sum2 = new int[3];
+        Scanner in2 = new Scanner(System.in);
+        for (int i = 0; i < array2.length; i++) {
+            for (int j = 0; j < array2[i].length; j++) {
+                array2[i][j] = in2.nextInt();
+                sum2[j] += array2[i][j];
             }
         }
+        for (int k = 0; k < sum2.length; k++) {
+            System.out.println(sum2[k]);
+        }
         System.out.println();
 
-//3 задание
-        int [] array3 = {3, 22, 1, 13, 4, 6, 16, 5};
-        int max = 0;
-
-        for (int i = 0; i < array3.length; i++)
-        {
-            if (max < array3[i])
-            {
-                max = array3[i];
+        //Задача 3
+        int [][] array3 = new int[4][3];
+        Scanner in3 = new Scanner(System.in);
+        for (int i = 0; i < array3.length; i++) {
+            for (int j = 0; j < array3[i].length; j++) {
+                array3[i][j] = in3.nextInt();;
+                if (array3[i][j] % 2 != 0) {
+                    array3[i][j] = 1;
+                } else {
+                    array3[i][j] = 0;
+                }
+                System.out.print(array3[i][j] + " ");
             }
+            System.out.println();
         }
-
-        System.out.println(max);
         System.out.println();
 
-//4 задание
-        int [] array4 = {3, 22, 1, 13, 4, 6, 16, 5};
-        int sum = 0;
-
-        for (int i = 0; i < array4.length; i++)
-        {
-            sum += array4[i];
-        }
-
-        System.out.println(sum);
-        System.out.println();
-
-
-//5 задание
-        int [] array5 = {3, 22, 1, 13, 4, 6, 16, 5};
-        int [] newArray = new int[array.length];
-
-        for (int i = array5.length; i >= 0; i--)
-        {
-            for (int j = 0; j < array5.length; j++) {
-                newArray[j] = array5[array5.length - 1 - j];
+        //Задача 4
+        int [][] array4 = new int[4][3];
+        double [] sum4 = new double[4];
+        Scanner in4 = new Scanner(System.in);
+        for (int i = 0; i < array4.length; i++) {
+            for (int j = 0; j < array4[i].length; j++) {
+                array4[i][j] = in4.nextInt();
+                sum4[i] += array4[i][j];
+                if (j == array4[i].length - 1) {
+                    System.out.printf("\nLine %d: %.3f\n\n", i + 1, sum4[i]/array4[i].length);
+                }
             }
         }
 
-        for (int k = 0; k < newArray.length; k++)
-        {
-            System.out.println(newArray[k]);
+        //Задача 5
+        int line = 4;
+        int column = 3;
+        int [][] array5 = new int[line][column];
+        int [] reverseArray = new int[line * column];
+        int k = 0;
+        Scanner in5 = new Scanner(System.in);
+        for (int i = 0; i < array5.length; i++) {
+            for (int j = 0; j < array5[i].length; j++) {
+                array5[i][j] = in5.nextInt();
+                reverseArray[reverseArray.length - 1 - k] = array5[i][j];
+                k++;
+            }
         }
-        System.out.println();
+        for (int i = 0; i < reverseArray.length; i++) {
+            System.out.println(reverseArray[i]);
+        }
+
+
+
+
+
     }
 }
