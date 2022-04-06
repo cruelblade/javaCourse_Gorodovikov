@@ -1,36 +1,28 @@
 package ru.iteco.util;
-import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        MenuOperations menuOperation = new MenuOperations();
-        Scanner inputMenuItem  = new Scanner(System.in);
-        String choosingMenuItem = "1";
 
-        menuOperation.printMenu();
+        //Конструктор с аргументом
+        Arya arya = new Arya("Nymeria");
+        //Конструктор без аргумента с экземпляром родительского класса
+        Ned robb = new Robb();
 
-        while (!choosingMenuItem.equals("3")) {
-            switch (choosingMenuItem = inputMenuItem.nextLine()) {
-                case "1":
-                    menuOperation.newOperation();
-                    break;
-                case "2":
-                    if (menuOperation.result != null)
-                        menuOperation.continueOperation();
-                    else System.out.println("Недоступно!");
-                    break;
-                case "3":
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Недопустимый ввод!\nВведите корректное значение.");
-                    break;
-            }
-            System.out.print("\n\n");
-            menuOperation.printMenu();
-        }
+        //Проверка вывода присвоенного значения аргумента
+        System.out.println("Arya's wolf is " + arya.wolf);
 
+        //Проверка set для private переменной needle
+        arya.setNeedle("Needle");
+        //Вызов override метода cut с значением из set
+        arya.cut();
+
+        //Проверка get из private переменной surname родительского класса
+        System.out.println("Robb is " + robb.getSurname());
+
+        //Конвертация экземпляра класса для получения прямого доступа к переменной executor
+        Robb kingOfTheNorth = (Robb) robb;
+        //Вызов метода die родительского класса
+        robb.die(kingOfTheNorth.executor);
     }
-
 }
