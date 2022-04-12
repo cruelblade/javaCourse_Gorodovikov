@@ -1,8 +1,5 @@
 public interface Printable {
 
-
-    public void pay();
-
-
+    public void print(String name);
 
 }
