@@ -18,4 +18,10 @@ public class Analytics <T> implements Recordable<T>{
         return this.firstAnalytics;
     }
 
+    @Override
+    public String toString() {
+        return "Analytics{" +
+                "firstAnalytics=" + firstAnalytics +
+                '}';
+    }
 }
