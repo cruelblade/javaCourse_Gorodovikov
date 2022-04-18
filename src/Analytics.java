@@ -5,6 +5,10 @@ public class Analytics <T> implements Recordable<T>{
         this.firstAnalytics = firstAnalytics;
     }
 
+    public T getFirstAnalytics() {
+        return firstAnalytics;
+    }
+
     @Override
     public String record(T recorded) {
         return recorded.toString();
