@@ -1,14 +1,18 @@
 public enum Users {
-    Administrator("admin","admin"),
-    Moderator("master", "1111"),
-    User("cru","q123");
+    Administrator("admin","admin", "Админов", "Админ"),
+    Moderator("master", "1111", "Модераторович", "Модератор"),
+    User("cru","q123", "Просто", "Иван");
 
-    String login;
-    String password;
+    private final String login;
+    private final String password;
+    private final String surname;
+    private final String name;
 
-    Users(String login, String password) {
+    private Users(String login, String password, String surname, String name) {
         this.login = login;
         this.password = password;
+        this.surname = surname;
+        this.name = name;
     }
 
     public String getLogin() {
@@ -21,9 +25,6 @@ public enum Users {
 
     @Override
     public String toString() {
-        return "Users{" +
-                "login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return surname + " " + name ;
     }
 }
