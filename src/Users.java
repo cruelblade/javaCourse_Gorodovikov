@@ -1,7 +1,7 @@
 public enum Users {
-    Administrator("admin","admin", "Админов", "Админ"),
+    Administrator("admin", "admin", "Админов", "Админ"),
     Moderator("master", "1111", "Модераторович", "Модератор"),
-    User("cru","q123", "Просто", "Иван");
+    User("cru", "q123", "Просто", "Иван");
 
     private final String login;
     private final String password;
