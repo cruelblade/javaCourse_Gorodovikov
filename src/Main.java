@@ -1,13 +1,18 @@
+import java.util.Scanner;
 
 public class Main {
-    public static final AuthorizationMethods authorizationMethods = new AuthorizationMethods();
-    public static final NoteMethods noteMethods = new NoteMethods();
 
     public static void main(String[] args) {
-        noteMethods.createdNotesByHardCode(); //заметки, созданные хардкодом, при необходимости можно удалить
-        while (true) {
-            authorizationMethods.actionMenu();
-            noteMethods.actionMenu();
-        }
+
+        Printable inst = name -> System.out.println("Hello, " + name);
+        inst.print("MAX");
+
+        Filter af = age -> !(age < 18);
+
+        Scanner scr = new Scanner(System.in);
+        int age = scr.nextInt();
+
+
+
     }
 }
