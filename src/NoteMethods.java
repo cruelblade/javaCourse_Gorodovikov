@@ -1,4 +1,4 @@
-public class NoteMethods extends Methods {
+public class NoteMethods extends Methods implements Menuable{
 
     int noteNumber = 1;
     Notes[] notes = new Notes[5];
@@ -6,15 +6,47 @@ public class NoteMethods extends Methods {
     int noteSearchNumber;
 
     public void createNote() {
+        String noteName;
+        while (true) {
+            System.out.println("Введите название заметки:");
+            noteName = scanner.nextLine();
+            if (noteName.replaceAll(" ", "").equals("")) {
+                System.out.println("Поле не должно быть пустым");
+            } else {
+                break;
+            }
+        }
 
-        System.out.println("Введите название заметки:");
-        String noteName = scanner.nextLine();
-        System.out.println("Введите тело заметки:");
-        String noteBody = scanner.nextLine();
-        System.out.println("Введите тип заметки:");
-        String noteType = scanner.nextLine();
+        String noteBody;
+        while (true) {
+            System.out.println("Введите текст заметки:");
+            noteBody = scanner.nextLine();
+            if (noteBody.replaceAll(" ", "").equals("")) {
+                System.out.println("Поле не должно быть пустым");
+            } else {
+                break;
+            }
+        }
 
-        Notes note = new Notes(noteName, noteBody, noteType, noteNumber, currentUser.toString());
+        System.out.println("Выберете тип заметки:\n1. Рабочая заметка\n2. Домашняя заметка");
+        String noteType;
+
+        Notes note;
+
+        while (true) {
+            noteType = scanner.nextLine();
+            if (noteType.equals("1")) {
+                noteType = "Рабочая заметка";
+                note = new WorkingNotes<String>(noteName, noteBody, noteType, noteNumber, currentUser.toString());
+                break;
+            } else if (noteType.equals("2")) {
+                noteType = "Домашняя заметка";
+                note = new WorkingNotes<String>(noteName, noteBody, noteType, noteNumber, currentUser.toString());
+                break;
+            } else {
+                System.out.println("Введите корректный тип заметки");
+            }
+        }
 
         if (noteNumber <= 5) {
             notes[noteNumber - 1] = note;
@@ -33,7 +65,7 @@ public class NoteMethods extends Methods {
 
         for (Notes note: notes) {
             if (note != null) {
-                if (note.noteName.toLowerCase().contains(searchInput) | note.noteType.toLowerCase().contains(searchInput)) {
+                if (note.noteName.toLowerCase().contains(searchInput.toLowerCase()) | note.noteType.toLowerCase().contains(searchInput.toLowerCase())) {
                     System.out.println(note);
                     noteSearchNumber = note.noteNumber;
                     noteCount++;
@@ -83,10 +115,12 @@ public class NoteMethods extends Methods {
                 switch (scanner.nextLine()) {
                     case "1":
                         System.out.println("Введите новое название заметки");
-                        while (input.equals("")) {
+                        while (true) {
                             input = scanner.nextLine();
-                            if (input.equals("")) {
+                            if (input.replaceAll(" ", "").equals("")) {
                                 System.out.println("Поле не должно быть пустым");
+                            } else {
+                                break;
                             }
                         }
                         notes[noteSearchNumber - 1].noteName = input;
@@ -95,24 +129,32 @@ public class NoteMethods extends Methods {
                         break;
 
                     case "2":
-                        System.out.println("Введите новый тип заметки");
-                        while (input.equals("")) {
+                        System.out.println("Введите слово заметки, которое хотите заменить");
+                        while (true) {
                             input = scanner.nextLine();
-                            if (input.equals("")) {
+                            if (input.replaceAll(" ", "").equals("")) {
                                 System.out.println("Поле не должно быть пустым");
+                            } else if (notes[noteSearchNumber - 1].noteBody.contains(input)) {
+                                System.out.println("Введите слово, на которое произвести замену");
+                                notes[noteSearchNumber - 1].noteBody = notes[noteSearchNumber - 1].noteBody.replaceFirst(input, scanner.nextLine());
+                                break;
+                            } else {
+                                System.out.println("Данное слово не существует в данной заметке. Введите корректное.");
                             }
                         }
-                        notes[noteSearchNumber - 1].noteType = input;
+
                         System.out.println("\nЗаметка изменена.\n\n" + notes[noteSearchNumber - 1] + "\nДля продолжения Нажмите на любую кнопку.");
                         scanner.nextLine();
                         break;
 
                     case "3":
                         System.out.println("Введите новое тело заметки");
-                        while (input.equals("")) {
+                        while (true) {
                             input = scanner.nextLine();
-                            if (input.equals("")) {
+                            if (input.replaceAll(" ", "").equals("")) {
                                 System.out.println("Поле не должно быть пустым");
+                            } else {
+                                break;
                             }
                         }
                         notes[noteSearchNumber - 1].noteBody = input;
@@ -153,8 +195,6 @@ public class NoteMethods extends Methods {
                 default:
                     System.out.println("Недопустимый ввод!\nВведите корректное значение.\n");
             }
-
-
         }
     }
 

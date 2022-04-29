@@ -1,5 +1,6 @@
-public class WorkingNotes{
+public class WorkingNotes<T> extends Notes{
 
-    String[] notes = new String[5];
-
+    public WorkingNotes(T noteName, String noteBody, String noteType, int noteNumber, String noteAuthor) {
+        super((String) noteName, noteBody, noteType, noteNumber, noteAuthor);
+    }
 }

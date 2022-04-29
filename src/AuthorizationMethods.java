@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class AuthorizationMethods extends Methods {
+public class AuthorizationMethods extends Methods implements Menuable{
     private final Users[] users = Users.values();
 
     public void authorization() {

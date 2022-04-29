@@ -4,16 +4,13 @@
 Если выбираю поиск заметок - выводится текст "Введите название или тип заметки"
     - после ввода осуществляется поиск и вывод на экран в виде цифрового меню подходящих заметок и кнопка назад
     - выбираю нужную заметку - отображается заметка
-        ниже меню - изменить название, изменить тело, изменить тип заметки, вывести автора, удалить заметку, назад (изменяет заметку только админ и модер)
+        ниже меню - изменить название, изменить тело, изменить слово, вывести автора, удалить заметку, назад (изменяет заметку только админ и модер)
 
 
-Заметки:
-осталось добавить обобщение,
-интерфейсы,
-разные типы заметок,
-замена слова в заметке.
-
-advanced functional (under development)
+advanced functional (under development):
 1. using database for keeping notes
 2. insert new note to array cell of deleted note
 3. update password validation
+4. update changing word in noteMethods
+(method must change a word only if input = word, not letter)
+5. think over how to add more correct interfaces and generics
