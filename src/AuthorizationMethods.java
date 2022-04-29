@@ -4,6 +4,7 @@ public class AuthorizationMethods extends Methods {
     private final Users[] users = Users.values();
 
     public void authorization() {
+
         while (true) {
             System.out.print("логин: ");
             String login = scanner.nextLine();
@@ -13,9 +14,9 @@ public class AuthorizationMethods extends Methods {
             for (Users user : users) {
                 if (login.toLowerCase().equals(user.getLogin())) {
                     if (password.equals(user.getPassword())) {
-                        System.out.println("Авторизация прошла успешно");
+                        System.out.println("Авторизация прошла успешно.");
                         currentUser = user;
-                        System.out.printf("Приветствуем вас, %s\n\n", currentUser);
+                        System.out.printf("Приветствуем вас, %s!\n\n", currentUser);
                     } else {
                         System.out.println("Неверный пароль!\n");
                     }
@@ -29,6 +30,7 @@ public class AuthorizationMethods extends Methods {
     }
 
     public void actionMenu() {
+
         while (currentUser == null) {
             System.out.println("1. Авторизоваться");
             System.out.println("2. Выйти");
