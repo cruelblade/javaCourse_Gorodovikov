@@ -10,7 +10,7 @@ public class NoteMethods extends Methods implements Menuable{
         while (true) {
             System.out.println("Введите название заметки:");
             noteName = scanner.nextLine();
-            if (noteName.replaceAll(" ", "").equals("")) {
+            if (noteName.replaceAll(" ", "").replaceAll("\\W", "").equals("")) {
                 System.out.println("Поле не должно быть пустым");
             } else {
                 break;
@@ -21,14 +21,14 @@ public class NoteMethods extends Methods implements Menuable{
         while (true) {
             System.out.println("Введите текст заметки:");
             noteBody = scanner.nextLine();
-            if (noteBody.replaceAll(" ", "").equals("")) {
+            if (noteBody.replaceAll(" ", "").replaceAll("\\W", "").equals("")) {
                 System.out.println("Поле не должно быть пустым");
             } else {
                 break;
             }
         }
 
-        System.out.println("Выберете тип заметки:\n1. Рабочая заметка\n2. Домашняя заметка");
+        System.out.println("Выберите тип заметки:\n1. Рабочая заметка\n2. Домашняя заметка");
         String noteType;
 
         Notes note;
@@ -41,7 +41,7 @@ public class NoteMethods extends Methods implements Menuable{
                 break;
             } else if (noteType.equals("2")) {
                 noteType = "Домашняя заметка";
-                note = new WorkingNotes<String>(noteName, noteBody, noteType, noteNumber, currentUser.toString());
+                note = new HomeNotes<String>(noteName, noteBody, noteType, noteNumber, currentUser.toString());
                 break;
             } else {
                 System.out.println("Введите корректный тип заметки");
@@ -117,7 +117,7 @@ public class NoteMethods extends Methods implements Menuable{
                         System.out.println("Введите новое название заметки");
                         while (true) {
                             input = scanner.nextLine();
-                            if (input.replaceAll(" ", "").equals("")) {
+                            if (input.replaceAll(" ", "").replaceAll("\\W", "").equals("")) {
                                 System.out.println("Поле не должно быть пустым");
                             } else {
                                 break;
@@ -132,7 +132,7 @@ public class NoteMethods extends Methods implements Menuable{
                         System.out.println("Введите слово заметки, которое хотите заменить");
                         while (true) {
                             input = scanner.nextLine();
-                            if (input.replaceAll(" ", "").equals("")) {
+                            if (input.replaceAll(" ", "").replaceAll("\\W", "").equals("")) {
                                 System.out.println("Поле не должно быть пустым");
                             } else if (notes[noteSearchNumber - 1].noteBody.contains(input)) {
                                 System.out.println("Введите слово, на которое произвести замену");
@@ -151,7 +151,7 @@ public class NoteMethods extends Methods implements Menuable{
                         System.out.println("Введите новое тело заметки");
                         while (true) {
                             input = scanner.nextLine();
-                            if (input.replaceAll(" ", "").equals("")) {
+                            if (input.replaceAll(" ", "").replaceAll("\\W", "").equals("")) {
                                 System.out.println("Поле не должно быть пустым");
                             } else {
                                 break;
