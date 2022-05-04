@@ -40,16 +40,7 @@ public class Main {
     }
 
     public static void addStudent () {
-
-//        String studentFullName;
-//        while (true) {
-//            System.out.println("Введите ФИО ученика");
-//            studentFullName = scanner.nextLine();
-//
-//            if (!studentFullName.replaceAll(" ", "").equals("")) {
-//                break;
-//            }
-//        }
+        
         System.out.println("Введите ФИО ученика");
         String studentFullName = isNotNull(scanner.nextLine());
 
