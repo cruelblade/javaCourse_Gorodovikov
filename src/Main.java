@@ -1,10 +1,10 @@
 import java.util.*;
 
 public class Main {
-    public static Scanner scanner = new Scanner(System.in);
-    public static Student student;
-    public static TreeSet<Student> students = new TreeSet<>();
-    FavouriteSubject favouriteSubject;
+    static Scanner scanner = new Scanner(System.in);
+    static Student student;
+    static TreeSet<Student> students = new TreeSet<>();
+    static FavouriteSubject favouriteSubject;
 
     public static void main(String[] args) {
         addedStudents();
@@ -40,8 +40,18 @@ public class Main {
     }
 
     public static void addStudent () {
+
+//        String studentFullName;
+//        while (true) {
+//            System.out.println("Введите ФИО ученика");
+//            studentFullName = scanner.nextLine();
+//
+//            if (!studentFullName.replaceAll(" ", "").equals("")) {
+//                break;
+//            }
+//        }
         System.out.println("Введите ФИО ученика");
-        String studentFullName = scanner.nextLine();
+        String studentFullName = isNotNull(scanner.nextLine());
 
         System.out.println("Введите возраст ученика");
         String studentAgeStr = scanner.nextLine();
@@ -53,18 +63,38 @@ public class Main {
         int studentAge = Integer.parseInt(studentAgeStr);
 
         System.out.println("Введите номер класса ученика");
-        String studentClassName = scanner.nextLine();
+        String studentClassName = isNotNull(scanner.nextLine());
 
-        System.out.printf("Выберите номер любимого предмета ученика: \n1. %s\n2. %s\n3. %s\n4. %s\n",
-                FavouriteSubject.Информатика,
-                FavouriteSubject.История,
-                FavouriteSubject.Математика,
-                FavouriteSubject.Иностранный_язык);
+        while (true) {
+            System.out.printf("Выберите номер любимого предмета ученика: \n1. %s\n2. %s\n3. %s\n4. %s\n",
+                    FavouriteSubject.Информатика,
+                    FavouriteSubject.История,
+                    FavouriteSubject.Математика,
+                    FavouriteSubject.Иностранный_язык);
 
-        String subject = scanner.nextLine();
+
+            switch (scanner.nextLine()) {
+                case "1":
+                    favouriteSubject = FavouriteSubject.Информатика;
+                    break;
+                case "2":
+                    favouriteSubject = FavouriteSubject.История;
+                    break;
+                case "3":
+                    favouriteSubject = FavouriteSubject.Математика;
+                    break;
+                case "4":
+                    favouriteSubject = FavouriteSubject.Иностранный_язык;
+                    break;
+                default:
+                    System.out.println("Введите корректный номер\n");
+                    continue;
+            }
+            break;
+        }
 
 
-        student = new Student(studentFullName, studentAge, studentClassName, FavouriteSubject.Информатика);
+        student = new Student(studentFullName, studentAge, studentClassName, favouriteSubject);
 
         for (Student s : students) {
             if (s.getFullName().equals(studentFullName) &
@@ -148,4 +178,13 @@ public class Main {
         }
         return true;
     }
+
+    public static String isNotNull(String input) {
+        while (input.replaceAll(" ", "").equals("")) {
+            System.out.println("Пустые строки вводить нельзя!\nВведите корректное значение");
+            input = scanner.nextLine();
+        }
+        return input;
+    }
 }
+
