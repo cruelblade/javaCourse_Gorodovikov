@@ -40,7 +40,7 @@ public class Main {
     }
 
     public static void addStudent () {
-        
+
         System.out.println("Введите ФИО ученика");
         String studentFullName = isNotNull(scanner.nextLine());
 
@@ -56,14 +56,13 @@ public class Main {
         System.out.println("Введите номер класса ученика");
         String studentClassName = isNotNull(scanner.nextLine());
 
+        System.out.printf("Выберите номер любимого предмета ученика: \n1. %s\n2. %s\n3. %s\n4. %s\n",
+                FavouriteSubject.Информатика,
+                FavouriteSubject.История,
+                FavouriteSubject.Математика,
+                FavouriteSubject.Иностранный_язык);
+
         while (true) {
-            System.out.printf("Выберите номер любимого предмета ученика: \n1. %s\n2. %s\n3. %s\n4. %s\n",
-                    FavouriteSubject.Информатика,
-                    FavouriteSubject.История,
-                    FavouriteSubject.Математика,
-                    FavouriteSubject.Иностранный_язык);
-
-
             switch (scanner.nextLine()) {
                 case "1":
                     favouriteSubject = FavouriteSubject.Информатика;
