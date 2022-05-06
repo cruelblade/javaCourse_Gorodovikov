@@ -1,3 +1,6 @@
 public interface Printable {
-    void print(String name);
+
+    void print(String x);
+
+//    void scan(String x);
 }
