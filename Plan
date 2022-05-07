@@ -5,3 +5,36 @@
 группа УБИН-01-22 - если год рождения < 1995
 группа УБИН-02-22 - если больше или равно
 
+
+
+
+
+
+
+//вспомогательные наработки
+public class Main {
+
+    public static Student user;
+
+    public static void main(String[] args) {
+
+
+        InterfaceSomething<Student, Person> ifs = user
+                -> new Person(user.getFullName(), user.age, user.group);
+
+        printUser2(ifs);
+
+
+    }
+
+    public static void printUser2(InterfaceSomething<Student, Person> ifs) {
+        Person u = ifs.doSomething(new Student("MAX", 23, "44"));
+        System.out.println(u);
+    }
+}
+
+
+interface InterfaceSomething <T, R> {
+    R doSomething(T object);
+}
+

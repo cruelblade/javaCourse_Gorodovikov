@@ -9,4 +9,13 @@ public class Student {
         this.age = age;
         this.group = group;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "fullName='" + fullName + '\'' +
+                ", age=" + age +
+                ", group='" + group + '\'' +
+                '}';
+    }
 }
