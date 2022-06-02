@@ -1,6 +1,6 @@
-public abstract class Menus {
+public class Menus {
 
-    public static void mainMenu() {
+    protected void printMainMenu() {
         System.out.println("""
                 1. Квартиры.
                 2. Коммерческие помещения.
@@ -9,7 +9,7 @@ public abstract class Menus {
                 5. Выход.""");
     }
 
-    public static void apartmentsMenu() {
+    protected void printApartmentsMenu() {
         System.out.println("""
                 1. Добавить квартиру в список для аренды.
                 2. Удалить квартиру из списка для аренды.
@@ -22,7 +22,7 @@ public abstract class Menus {
                 """);
     }
 
-    public static void commercialPremisesMenu() {
+    protected void printCommercialPremisesMenu() {
         System.out.println("""
                 1. Добавить помещение в список для аренды.
                 2. Удалить помещение из списка для аренды.

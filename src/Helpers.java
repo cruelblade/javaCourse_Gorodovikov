@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public interface Helpers {
@@ -23,31 +24,74 @@ public interface Helpers {
         return numeric;
     }
 
-    static void addedApartments() {
+    static int inListBound(List<? extends Placements> list, int index) {
+        while (index - 1 >= list.size() | index < 1) {
+            System.out.println("Введите корректное число");
+            index = toNumeric(scanner.nextLine());
+        }
+        return index - 1;
+    }
+
+    static void addedPlacements() {
         Apartments.apartmentsList.add(new Apartments(
                 "Квартира",
-                "Войковская",
                 "Летниковская, 24",
+                "Войковская",
                 3,
                 63,
                 90000300,
-                40000000));
+                10));
         Apartments.apartmentsList.add(new Apartments(
                 "Квартира",
-                "Беговая",
                 "Туристская, 24",
+                "Беговая",
                 4,
                 43,
                 63004000,
-                111000000));
+                9));
         Apartments.apartmentsList.add(new Apartments(
                 "Квартира",
-                "Печатники",
                 "Краснодарская, 28",
+                "Печатники",
                 1,
                 42,
                 7004800,
-                12000000));
+                8));
+        Apartments.apartmentsList.add(new Apartments(
+                "Квартира",
+                "Краснодарская, 28",
+                "Печатники",
+                1,
+                44,
+                7004810,
+                3));
+        CommercialPremises.commercialPremisesList.add(new CommercialPremises(
+                "Коммерческое помещение",
+                "Васильевская ул., 28",
+                "Хамовники",
+                "Офис",
+                41,
+                7004810,
+                5
+        ));
+        CommercialPremises.commercialPremisesList.add(new CommercialPremises(
+                "Коммерческое помещение",
+                "Васильевская ул., 28",
+                "Хамовники",
+                "Штаб-квартира",
+                142,
+                7004810,
+                6
+        ));
+        CommercialPremises.commercialPremisesList.add(new CommercialPremises(
+                "Коммерческое помещение",
+                "Леманская ул., 28",
+                "Зябликово",
+                "Склад",
+                151,
+                7004851,
+                4
+        ));
     }
 
 
