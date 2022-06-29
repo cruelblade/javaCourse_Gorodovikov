@@ -1,7 +1,9 @@
+
+
 public class NoteMethods extends Methods implements Menuable{
 
     int noteNumber = 1;
-    Notes[] notes = new Notes[5];
+    Notes[] notes = new Notes[10];
     int noteCount;
     int noteSearchNumber;
 
@@ -48,9 +50,9 @@ public class NoteMethods extends Methods implements Menuable{
             }
         }
 
-        if (noteNumber <= 5) {
-            notes[noteNumber - 1] = note;
-            System.out.println("Заметка №" + noteNumber + " создана.\n");
+        if (DBActions.sumNotes() < notes.length) {
+            DBActions.createNote(note.getNoteName(), note.getNoteBody(), note.getNoteType(), note.getNoteNumber(), currentUser.toString());
+            System.out.println("Заметка №" + DBActions.returnLastId() + " создана.\n");
             noteNumber++;
         } else {
             System.out.println("Лимит заметок превышен! \n");
@@ -58,10 +60,11 @@ public class NoteMethods extends Methods implements Menuable{
     }
 
     public void searchNote() {
-
         System.out.println("Введите название или тип заметки полностью или частично:");
         noteCount = 0;
         String searchInput = scanner.nextLine();
+
+        notes = DBActions.searchNotes(searchInput);
 
         for (Notes note: notes) {
             if (note != null) {
@@ -88,6 +91,13 @@ public class NoteMethods extends Methods implements Menuable{
             while (true) {
                 try {
                     noteSearchNumber = Integer.parseInt(scanner.nextLine());
+//                    boolean isNumberContains = false;
+//                    for (Notes note : notes) {
+//                        if (note.noteNumber == noteSearchNumber) {
+//                            isNumberContains = true;
+//                            break;
+//                        }
+//                    }
                     if (notes[noteSearchNumber - 1] == null) {
                         System.out.println("Введите корректный номер заметки");
                         continue;

@@ -1,3 +1,5 @@
+
+
 public class Notes {
 
     String noteName;
@@ -12,6 +14,26 @@ public class Notes {
         this.noteType = noteType;
         this.noteNumber = noteNumber;
         this.noteAuthor = noteAuthor;
+    }
+
+    public String getNoteName() {
+        return noteName;
+    }
+
+    public String getNoteBody() {
+        return noteBody;
+    }
+
+    public String getNoteType() {
+        return noteType;
+    }
+
+    public int getNoteNumber() {
+        return noteNumber;
+    }
+
+    public String getNoteAuthor() {
+        return noteAuthor;
     }
 
     @Override

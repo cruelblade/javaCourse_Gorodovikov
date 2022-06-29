@@ -14,3 +14,9 @@ advanced functional (under development):
 4. update changing word in noteMethods
 (method must change a word only if input = word, not letter)
 5. think over how to add more correct interfaces and generics
+
+BD:
+add database functional for showing notes
+
+пользователь вводит слово, проверить является ли слово типом или названием заметки и вывести при совпадении
+если вместо слова пусто - вывести все заметки
